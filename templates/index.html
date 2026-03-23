@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Placement Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+   body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* FIX */
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 26px;
+      color: #FFD700;
+      text-shadow: 0 0 10px #FFD700,
+                   0 0 20px #FFD700,
+                   0 0 40px #FFD700;
+    }
+
+    .input-box {
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      background: #111;
+      color: #FFD700;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    input::placeholder {
+      color: #888;
+    }
+
+    input:focus {
+      border-color: #FFD700;
+      outline: none;
+      box-shadow: 0 0 10px #FFD700;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: #FFD700;
+      color: black;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      box-shadow: 0 0 10px #FFD700,
+                  0 0 20px #FFD700;
+    }
+
+    .loader {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+      color: #FFD700;
+    }
+
+    /* 🔥 Neon AJ watermark */
+    .watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 20px;
+      font-size: 50px;
+      font-weight: bold;
+      color: #FFD700;
+      opacity: 0.15;
+      text-shadow: 0 0 10px #FFD700,
+                   0 0 20px #FFD700,
+                   0 0 40px #FFD700,
+                   0 0 80px #FFD700;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="watermark">AJ</div>
+
+<div class="container">
+
+  <h1>Placement Predictor</h1>
+
+  <form action="/predict" method="post" onsubmit="showLoader()">
+
+    <div class="input-box">
+      <input name="ssc" placeholder="10th %">
+    </div>
+
+    <div class="input-box">
+      <input name="hsc" placeholder="12th %">
+    </div>
+
+    <div class="input-box">
+      <input name="degree" placeholder="UG CGPA">
+    </div>
+
+    <div class="input-box">
+      <input name="mba" placeholder="Master CGPA">
+    </div>
+
+    <button>Predict</button>
+
+    <div class="loader" id="loader">Analyzing...</div>
+
+  </form>
+
+</div>
+
+<script>
+function showLoader() {
+  document.getElementById("loader").style.display = "block";
+}
+</script>
+
+</body>
+</html>
